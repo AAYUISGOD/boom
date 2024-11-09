@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Complex Web Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        h1 { color: darkblue; }
+        table { width: 100%; border-collapse: collapse; }
+        table, th, td { border: 1px solid black; }
+        th, td { padding: 8px; text-align: left; }
+        form { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>My Complex Web Page</h1>
+    <p>This page includes a table, a form, and some interactive JavaScript.</p>
+
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Occupation</th>
+        </tr>
+        <tr>
+            <td>John Doe</td>
+            <td>30</td>
+            <td>Engineer</td>
+        </tr>
+        <tr>
+            <td>Jane Smith</td>
+            <td>25</td>
+            <td>Designer</td>
+        </tr>
+    </table>
+
+    <form id="userForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required><br><br>
+        <label for="occupation">Occupation:</label>
+        <input type="text" id="occupation" name="occupation" required><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById('userForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var name = document.getElementById('name').value;
+            var age = document.getElementById('age').value;
+            var occupation = document.getElementById('occupation').value;
+
+            var table = document.querySelector('table');
+            var newRow = table.insertRow();
+
+            var cell1 = newRow.insertCell(0);
+            var cell2 = newRow.insertCell(1);
+            var cell3 = newRow.insertCell(2);
+
+            cell1.textContent = name;
+            cell2.textContent = age;
+            cell3.textContent = occupation;
+
+            document.getElementById('userForm').reset();
+        });
+    </script>
+</body>
+</html>
